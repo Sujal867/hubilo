@@ -17,7 +17,7 @@ const Header = () => {
             
             <a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Providers</a>
             <Link to="/how-it-works" className="text-hubilo-black hover:text-webinar-blue transition-colors">How it Works</Link>
-            <a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">FAQs</a>
+            <a href="#" className="text-hubilo-black hover:text-webinar-blue transiton-colors">FAQs</a>
           
           </nav>
         </div>
