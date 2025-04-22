@@ -1,0 +1,44 @@
+
+import ServiceProviderCard from './ServiceProviderCard';
+import { Button } from '@/components/ui/button';
+import { providersData } from '@/data/providers';
+import { Link } from 'react-router-dom';
+
+const FeaturedProvidersSection = () => {
+  return (
+    <section className="py-4 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl text-hubilo-black font-bold mb-4">Top-Rated Service Providers</h2>
+          <p className="text-hubilo-black max-w-2xl mx-auto">
+            Connect with our featured professionals who have consistently delivered exceptional webinar services
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
+          {providersData.map((provider) => (
+            <ServiceProviderCard 
+              key={provider.id}
+              id={provider.id}
+              name={provider.name}
+              image={provider.image}
+              category={provider.category}
+              description={provider.description}
+              priceRange={provider.priceRange}
+              rating={provider.rating}
+              verified={provider.verified}
+            />
+          ))}
+        </div>
+        
+        <div className="text-center mt-16">
+          {/*<Button className="bg-webinar-darkOrange hover:bg-webinar-darkOrange/90 text-white px-8 py-6" asChild>
+            <Link to="/become-provider">View All Service Providers</Link>
+          </Button>*/}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedProvidersSection;
