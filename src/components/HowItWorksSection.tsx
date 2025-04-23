@@ -11,7 +11,7 @@ const HowItWorks = () => {
         <section className="bg-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-webinar-darkOrange">How It Works</h1>
-            <p className="text-xl text-hubilo-black md:text-2xl text-black-700 max-w-3xl mx-auto">
+            <p className="text-xl mb-4 text-hubilo-black md:text-2xl text-black-700 max-w-3xl mx-auto">
               Connecting with expert webinar service providers has never been easier. 
               Our streamlined process ensures you find the right partner for your virtual events.
             </p>
