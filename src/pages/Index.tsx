@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServiceCategoriesSection from '@/components/ServiceCategoriesSection';
@@ -13,6 +14,16 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <Helmet>
+        <meta 
+          name="title" 
+          content="Hubilo Services Hub | Find Expert Webinar Services" 
+        />
+        <meta 
+          name="description" 
+          content="Connect with top-rated webinar professionals to help you plan, produce, and perfect your next online event. Discover webinar services all in one place." 
+        />
+      </Helmet>
       <Header />
       <main className="flex-grow">
         <HeroSection />
