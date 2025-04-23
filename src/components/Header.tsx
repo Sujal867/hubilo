@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <img src={logo} alt="Hubilo Logo" className="h-8 mr-8" />
+            <img src={logo} alt="Hubilo Logo" className="logo-img" />
           </Link>
         </div>
         <div className="flex items-center">
