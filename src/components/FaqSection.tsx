@@ -9,7 +9,7 @@ const HowItWorks = () => {
       
       <main className="flex-grow">
         {/* FAQ Section */}
-        <section className="bg-white py-16">
+        <section id='faq' className="bg-white py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl  font-bold mb-12 text-center text-webinar-darkOrange">Frequently Asked Questions</h2>
             <div className="max-w-4xl mx-auto space-y-8">

@@ -15,9 +15,9 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           <nav className="hidden md:flex space-x-6">
-            <a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Providers</a>
-            <Link to="/how-it-works" className="text-hubilo-black hover:text-webinar-blue transition-colors">How it Works</Link>
-            <a href="#" className="text-hubilo-black hover:text-webinar-blue transiton-colors">FAQs</a>
+            <a href="#Providers" className="text-hubilo-black hover:text-webinar-blue transition-colors">Providers</a>
+            <a href="#how-it-works" className="text-hubilo-black hover:text-webinar-blue transition-colors">How it Works</a>
+            <a href="#faq" className="text-hubilo-black hover:text-webinar-blue transiton-colors">FAQs</a>
           </nav>
         </div>
       </div>

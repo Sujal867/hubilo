@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const CtaSection = () => {
   return (
-    <section className="py-20 bg-hubilo-darkOrange text-white">
+    <section className=" mt-16 py-20 bg-hubilo-darkOrange text-white">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Next Webinar?</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">

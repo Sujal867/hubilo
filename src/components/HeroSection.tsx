@@ -13,7 +13,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="backgroundColor: '#faf9f6' py-20">
+    <section className="bg-hubilo-lightOrange py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">

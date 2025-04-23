@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { providersData } from '@/data/providers';
 import { Link } from 'react-router-dom';
 
+
 const FeaturedProvidersSection = () => {
   return (
-    <section className="py-4 bg-white">
+    <section id='Providers'  className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl text-hubilo-black font-bold mb-4">Top-Rated Service Providers</h2>
@@ -31,7 +32,7 @@ const FeaturedProvidersSection = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
+        <div className="text-center">
           {/*<Button className="bg-webinar-darkOrange hover:bg-webinar-darkOrange/90 text-white px-8 py-6" asChild>
             <Link to="/become-provider">View All Service Providers</Link>
           </Button>*/}
