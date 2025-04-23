@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import logo from "../../public/Hero image.webp"
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -35,7 +36,7 @@ const HeroSection = () => {
           </div>
           <div className="lg:w-1/2 flex justify-center lg:justify-end items-stretch">
             <img
-              src="../../public/Hero image.webp"
+              src={logo}
               alt="Computer screen showing Hubilo webinar interface"
               className="rounded-lg w-full object-fill h-full"
             />
