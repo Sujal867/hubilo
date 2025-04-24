@@ -100,7 +100,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
   };
   
   return (
-    <Card className="overflow-hidden border-gray-100 shadow-sm transition-all hover:shadow-md hover:translate-y-[-5px]">
+    <Card className="overflow-hidden grid border-gray-100 shadow-sm transition-all hover:shadow-md hover:translate-y-[-5px]">
       <div className="relative h-48 overflow-hidden">
         <img
           src={image}
@@ -111,7 +111,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
           {category}
         </Badge>
       </div>
-
+      <div className="flex justify-between flex-col">
       <CardHeader className="pb-0 pt-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg text-hubilo-black font-semibold">{name}</h3>
@@ -160,7 +160,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
           </Button>
         </div>
       </CardFooter>
-
+      </div>
       {/* Contact Dialog */}
       <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
         <DialogContent className="sm:max-w-md">
@@ -212,7 +212,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
               </div>
             </div>
 
-            <DialogFooter>
+            <DialogFooter className="gap-3 lg:gap-0">
               <Button
                 type="button"
                 variant="outline"

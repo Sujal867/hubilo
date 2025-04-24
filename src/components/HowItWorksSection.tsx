@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
   return (
-    <div id='how-it-works' className="py-16 flex flex-col min-h-screen">
+    <div id='how-it-works' className="py-4 md:py-16 flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="bg-white">

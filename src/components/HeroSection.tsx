@@ -16,7 +16,7 @@ const HeroSection = () => {
     <section className="bg-hubilo-lightOrange">
       <div className="container mx-auto px-4">
         <div className="pt-4 flex flex-col lg:flex-row items-stretch min-h-[500px]">
-          <div className="py-20 lg:w-1/2 mb-10 lg:mb-0 flex flex-col justify-center">
+        <div className="py-4 md:py-16 lg:py-20 lg:w-1/2 mb-6 lg:mb-0 flex flex-col justify-center">
             <h1 className="text-4xl text-hubilo-black md:text-5xl font-bold mb-6 leading-tight">
               Find Expert Webinar Services{" "}
               <span className="text-webinar-darkOrange">All in One Place</span>

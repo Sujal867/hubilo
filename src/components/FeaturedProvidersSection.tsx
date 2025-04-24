@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const FeaturedProvidersSection = () => {
   return (
-    <section id='Providers'  className="py-16 bg-white">
+    <section id='Providers'  className="py-16 md:py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl text-hubilo-black font-bold mb-4">Top-Rated Service Providers</h2>
