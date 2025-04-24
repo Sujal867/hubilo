@@ -207,7 +207,7 @@ export const providersData: Provider[] = [
     ]
   },
   {
-    id: "sarah-johnson",
+    id: "sarah-Johnson",
     name: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Video Production",
@@ -242,7 +242,7 @@ export const providersData: Provider[] = [
     website: "https://webinarproductions.com"
   },
   {
-    id: "sarah-johnson",
+    id: "Sarah-johnson",
     name: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Technical Support",
@@ -277,7 +277,7 @@ export const providersData: Provider[] = [
     website: "https://webinarproductions.com"
   },
   {
-    id: "sarah-johnson",
+    id: "Sarah-Johnson",
     name: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Lead Generation",

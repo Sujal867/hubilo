@@ -1,18 +1,17 @@
-
-import React, { useState } from 'react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Star, Check, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { 
+import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Star, Check, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogFooter
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import {
   Card,
@@ -20,6 +19,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { getUniqueCategories } from "@/utils";
 
 export interface ServiceProviderProps {
   id: string;
@@ -40,50 +40,89 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
   description,
   priceRange,
   rating,
-  verified = false
+  verified = false,
 }) => {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [categoryName, setCategoryName] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const categories = getUniqueCategories();
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const currentDate = new Date();
+      const istOffset = 5.5 * 60 * 60 * 1000; // IST offset in milliseconds
+      const istDate = new Date(currentDate.getTime() + istOffset);
+
+      const formattedDate = istDate.toISOString().replace('T', ' ').split('.')[0]; 
+      const utmParams = new URLSearchParams(window.location.search);
+      const utm_source = utmParams.get("utm_source") ?? " ";
+      const utm_medium = utmParams.get("utm_medium") ?? " ";
+      const utm_campaign = utmParams.get("utm_campaign") ?? " ";
+      const utm_id = utmParams.get("utm_id") ?? " ";
+      const utm_term = utmParams.get("utm_term") ?? " ";
+      const utm_content = utmParams.get("utm_content") ?? " ";
+
+      await fetch("https://script.google.com/macros/s/AKfycbzAQkF3pljZiqI9sW89tbVsp25ddgp59aB3c4-QG6TFnKopv0QMZ8vPUIi4Xb8stWO9oQ/exec", {
+        method: "POST",
+        mode: 'no-cors',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          category: categoryName,
+          date: formattedDate,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          utm_id,
+          utm_term,
+          utm_content
+        }),
+      });
+  
       setIsSubmitting(false);
       setIsContactDialogOpen(false);
-      setEmail('');
-      toast.success(`Thank you for taking the first step. Sit tight - we’ll connect you with the right partner in 24 - 48 hours. Big wins (and better webinars) are just around the corner. 
-`);
-    }, 1000);
+      setEmail("");
+      setCategoryName("");
+      toast.success(`Thank you for taking the first step. Sit tight - we’ll connect you with the right partner in 24 - 48 hours. Big wins (and better webinars) are just around the corner.`);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Something went wrong. Please try again.");
+      setIsSubmitting(false);
+    }
   };
-
+  
   return (
     <Card className="overflow-hidden border-gray-100 shadow-sm transition-all hover:shadow-md hover:translate-y-[-5px]">
       <div className="relative h-48 overflow-hidden">
-        <img 
-          src={image} 
-          alt={`${name} - ${category}`} 
+        <img
+          src={image}
+          alt={`${name} - ${category}`}
           className="w-full h-full object-cover"
         />
         <Badge className="absolute top-3 left-3 bg-webinar-darkOrange text-white">
           {category}
         </Badge>
       </div>
-      
+
       <CardHeader className="pb-0 pt-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg text-hubilo-black font-semibold">{name}</h3>
           <div className="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded">
             <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
-            <span className="text-sm font-medium text-amber-700">{rating.toFixed(1)}</span>
+            <span className="text-sm font-medium text-amber-700">
+              {rating.toFixed(1)}
+            </span>
           </div>
         </div>
-        
+
         {verified && (
           <div className="flex items-center text-sm text-green-600 mt-1">
             <Check className="h-4 w-4 mr-1" />
@@ -91,19 +130,19 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
           </div>
         )}
       </CardHeader>
-      
+
       <CardContent className="pt-2">
         <p className="text-sm text-hubilo-black line-clamp-2">{description}</p>
       </CardContent>
-      
+
       <CardFooter className="border-t border-gray-100 pt-3 flex justify-between items-center">
         {/*  <div>
           <p className="text-xs text-gray-500">Starting at</p>
           <p className="text-webinar-purple font-semibold">{priceRange}</p>
         </div>*/}
         <div className="flex gap-2">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="sm"
             className="border-hubilo-darkOrange text-hubilo-darkOrange hover:bg-rose-50 hover:text-hubilo-darkOrange"
             onClick={() => setIsContactDialogOpen(true)}
@@ -111,8 +150,8 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
             <Heart className="h-4 w-4 mr-1 fill-hubilo-darkOrange" />
             Contact
           </Button>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="sm"
             className="border-webinar-gray text-hubilo-black font-normal hover:bg-webinar-gray/10 hover:text-hubilo-black"
             asChild
@@ -136,7 +175,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
               {/* Email Field */}
               <div className="grid gap-2">
                 <label htmlFor="email" className="text-sm font-medium">
-                    Email address
+                  Email address
                 </label>
                 <Input
                   id="email"
@@ -154,28 +193,35 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
                 <label htmlFor="categoryName" className="text-sm font-medium">
                   Category
                 </label>
-                <Input
+                <select
                   id="categoryName"
-                  type="text"
                   value={categoryName}
                   onChange={(e) => setCategoryName(e.target.value)}
-                  placeholder="Enter category"
-                  className="w-full"
+                  className="w-full border rounded-md p-2 text-sm"
                   required
-                />
+                >
+                  <option value="" disabled>
+                    Select a category
+                  </option>
+                  {categories.map((category) => (
+                    <option key={id} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
             <DialogFooter>
-              <Button 
-                type="button" 
-                variant="outline" 
+              <Button
+                type="button"
+                variant="outline"
                 onClick={() => setIsContactDialogOpen(false)}
               >
                 Cancel
               </Button>
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="bg-webinar-darkOrange hover:bg-webinar-darkOrange/90"
                 disabled={isSubmitting}
               >
