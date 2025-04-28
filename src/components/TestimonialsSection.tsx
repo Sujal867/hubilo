@@ -1,55 +1,67 @@
 
 import React from 'react';
+import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import image1 from "../../public/image1.webp";
+import image2 from "../../public/image2.webp";
+import image3 from "../../public/image3.webp";
+import image4 from "../../public/dave-aronson.webp";
+import image5 from "../../public/william_callahan (1).webp";
+import image6 from "../../public/gregory_miller (1).webp";
+
 
 const testimonials = [
   {
     name: "Greg Mares",
     role: "Senior Media Specialist",
     company: "Okta",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: image1,
     content: "We saw record YouTube numbers in our first month with a2. They helped us create explainer videos, short-form content, and event assets. The team is fast, clear, and genuinely fun to work with. Best video partner we’ve had in SaaS."
   },
   {
     name: "Andrew Jones",
     role: "Director of Marketing",
     company: "LABL",
+    image: image2,
     content: "Easily the best video team I’ve worked with. World-class work, insane turnaround times, and great communication.The team really cares about us and our goals. Feels like working with partners, not vendors."
   },
   {
     name: "Shawnie Hamer",
     role: "Director of Brand & Content Marketing",
     company: "Crossbeam",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: image3,
     content: "A2 Media turns raw ideas into high-performing content that lands. They’re creative, strategic, and a blast to work with. Every project has been smooth, fast, and impactful. Nobody does B2B video better."
   },
   {
     name: "Gregory Miller",
     role: "Senior Director Product Marketing",
     company: " Medable Inc",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: image4,
     content: "I look forward to meeting new people and learning new information at any business event I attend. I would surely trust the input or reviews by my peers to make a go or no go decision for an event."
   },
   {
     name: "Eric Smith",
     role: "Director of Content Marketing",
     company: "SecurityMetrics",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: image5,
     content: "I always expect to learn something new and generate new ideas at business events. I would have saved a lot of time by not attending some events if someone had just given me information about what some of these events actually were."
   },
   {
     name: "Dave Aronson",
     role: "Founder",
     company: " Codosaurus LLC",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: image6,
     content: "As a speaker as well as an attendee, the Event Destination, Networking and Learning opportunities are what I give importance to when choosing a business event."
   }
 ];
 
 const TestimonialsSection = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false }) // 👈 autoplay settings
+  )
   return (
     <section className="py-4 bg-white">
       <div className="container mx-auto px-4">
@@ -61,7 +73,7 @@ const TestimonialsSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-          <Carousel>
+          <Carousel plugins={[plugin.current]}>
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1 lg:basis-1/3 mb-2">
