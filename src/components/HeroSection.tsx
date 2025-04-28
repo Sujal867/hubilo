@@ -4,12 +4,11 @@ import { ArrowRight } from "lucide-react";
 import logo from "../../public/Hero image.webp"
 import { Link } from "react-router-dom";
 
+
 const HeroSection = () => {
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById("service-categories");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleButtonClick = () => {
+    const element = document.getElementById('Providers');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -28,7 +27,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 className="bg-webinar-darkOrange hover:bg-webinar-darkOrange/90 text-white px-8 py-6"
-                onClick={scrollToServices}
+                onClick={handleButtonClick}
               >
                 Browse Services <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

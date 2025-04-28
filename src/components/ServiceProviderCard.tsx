@@ -22,7 +22,7 @@ import {
 import { getUniqueCategories } from "@/utils";
 
 export interface ServiceProviderProps {
-  id: string;
+  id: number;
   name: string;
   image: string;
   category: string;
@@ -45,6 +45,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [categoryName, setCategoryName] = useState("");
+  const [messageSent, setMessageSent] = useState(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const categories = getUniqueCategories();
@@ -87,14 +88,15 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
         }),
       });
   
+      setMessageSent('success');
       setIsSubmitting(false);
-      setIsContactDialogOpen(false);
+      //setIsContactDialogOpen(false);
       setEmail("");
       setCategoryName("");
-      toast.success(`Thank you for taking the first step. Sit tight - we’ll connect you with the right partner in 24 - 48 hours. Big wins (and better webinars) are just around the corner.`);
+      {/*toast.success(`Thank you for taking the first step. Sit tight - we’ll connect you with the right partner in 24 - 48 hours. Big wins (and better webinars) are just around the corner.`)*/};
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again.");
+      {/*toast.error("Something went wrong. Please try again.");*/}
       setIsSubmitting(false);
     }
   };
@@ -115,62 +117,75 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
       <CardHeader className="pb-0 pt-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg text-hubilo-black font-semibold">{name}</h3>
-          <div className="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded">
+          {/*<div className="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded">
             <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
             <span className="text-sm font-medium text-amber-700">
               {rating.toFixed(1)}
             </span>
-          </div>
+          </div>*/}
         </div>
 
-        {verified && (
+        {/*{verified && (
           <div className="flex items-center text-sm text-green-600 mt-1">
             <Check className="h-4 w-4 mr-1" />
             <span>Verified Provider</span>
           </div>
-        )}
+        )}*/}
       </CardHeader>
 
       <CardContent className="pt-2">
         <p className="text-sm text-hubilo-black line-clamp-2">{description}</p>
       </CardContent>
 
-      <CardFooter className="border-t border-gray-100 pt-3 flex justify-between items-center">
+      <CardFooter className="border-t border-gray-100 pt-3 flex justify-end items-center">
         {/*  <div>
           <p className="text-xs text-gray-500">Starting at</p>
           <p className="text-webinar-purple font-semibold">{priceRange}</p>
         </div>*/}
-        <div className="flex gap-2">
+        <div className="flex justify-end items-end">
           <Button
             variant="outline"
             size="sm"
             className="border-hubilo-darkOrange text-hubilo-darkOrange hover:bg-rose-50 hover:text-hubilo-darkOrange"
-            onClick={() => setIsContactDialogOpen(true)}
+            onClick={() => {
+              setIsContactDialogOpen(true);
+              setMessageSent(false);
+            }}
+            
           >
             <Heart className="h-4 w-4 mr-1 fill-hubilo-darkOrange" />
             Contact
           </Button>
-          <Button
+          {/*<Button
             variant="outline"
             size="sm"
             className="border-webinar-gray text-hubilo-black font-normal hover:bg-webinar-gray/10 hover:text-hubilo-black"
             asChild
           >
             <Link to={`/provider/${id}`}>View Profile</Link>
-          </Button>
+          </Button>*/}
         </div>
       </CardFooter>
       </div>
       {/* Contact Dialog */}
       <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
         <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Contact {name}</DialogTitle>
-            <DialogDescription>
-              Leave your email and we'll connect you with this service provider.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleContactSubmit}>
+        <DialogHeader>
+          {!messageSent && (
+            <>
+              <DialogTitle>Contact {name}</DialogTitle>
+              <DialogDescription>
+                Leave your email and we'll connect you with this service provider.
+              </DialogDescription>
+            </>
+          )}
+        </DialogHeader>
+          {messageSent=='success' ? (
+            <div className="p-4  text-green-800 rounded text-center">
+              Thank you for taking the first step. Sit tight we’ll connect you with the right partner in 24 - 48 hours. Big wins (and better webinars) are just around the corner.
+            </div>
+          ) :
+          (<form onSubmit={handleContactSubmit}>
             <div className="grid gap-4 py-4">
               {/* Email Field */}
               <div className="grid gap-2">
@@ -228,7 +243,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
                 {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             </DialogFooter>
-          </form>
+          </form>)}
         </DialogContent>
       </Dialog>
     </Card>

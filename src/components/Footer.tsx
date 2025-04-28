@@ -17,26 +17,27 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Categories</h4>
+            <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Production</a></li>
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Technical Support</a></li>
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Content Creation</a></li>
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Coaching</a></li>
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Audience Engagement</a></li>
+              <li><a href="#how-it-works" className="text-hubilo-black hover:text-webinar-blue transition-colors">How It Works</a></li>
+              <li><a href="#faq" className="text-hubilo-black hover:text-webinar-blue transition-colors">Faq</a></li>
             </ul>
           </div>
+              {/*<li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Content Creation</a></li>
+              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Coaching</a></li>
+              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Audience Engagement</a></li>
           
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">About Us</a></li>
               <li><a href="#how-it-works" className="text-hubilo-black hover:text-webinar-blue transition-colors">How It Works</a></li>
-              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Testimonials</a></li>
+              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">FAQ</a></li>
+              <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">About Us</a></li>
               <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Careers</a></li>
               <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Contact</a></li>
             </ul>
           </div>
+          
           
           <div>
             <h4 className="font-semibold mb-4">Resources</h4>
@@ -47,7 +48,7 @@ const Footer = () => {
               <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Support</a></li>
               <li><a href="#faq" className="text-hubilo-black hover:text-webinar-blue transition-colors">FAQ</a></li>
             </ul>
-          </div>
+          </div>*/}
         </div>
         
         <Separator className="my-8" />
