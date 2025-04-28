@@ -60,7 +60,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false }) // 👈 autoplay settings
+    Autoplay({ delay: 4000, stopOnInteraction: false }) // 👈 autoplay settings
   )
   return (
     <section className="py-4 bg-white">
