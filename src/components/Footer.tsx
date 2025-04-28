@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        {/*<div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
           <img src={logo} alt="Hubilo Logo" className="h-8 mb-4" />
             <p className="text-hubilo-black mb-4">
@@ -48,10 +48,10 @@ const Footer = () => {
               <li><a href="#" className="text-hubilo-black hover:text-webinar-blue transition-colors">Support</a></li>
               <li><a href="#faq" className="text-hubilo-black hover:text-webinar-blue transition-colors">FAQ</a></li>
             </ul>
-          </div>*/}
-        </div>
+          </div>
+        </div>*/}
         
-        <Separator className="my-8" />
+        <Separator />
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-hubilo-black mb-4 md:mb-0">
