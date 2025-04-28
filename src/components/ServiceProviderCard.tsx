@@ -68,7 +68,7 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
       const utm_term = utmParams.get("utm_term") ?? " ";
       const utm_content = utmParams.get("utm_content") ?? " ";
 
-      await fetch("https://script.google.com/macros/s/AKfycbzAQkF3pljZiqI9sW89tbVsp25ddgp59aB3c4-QG6TFnKopv0QMZ8vPUIi4Xb8stWO9oQ/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbwhS3PLpC1VHdohJMzai9UvU11HBbQCygzIZwxLybvNYV97QyrN_xMGqJmHkldQyiohXw/exec", {
         method: "POST",
         mode: 'no-cors',
         headers: {
@@ -83,7 +83,8 @@ const ServiceProviderCard: React.FC<ServiceProviderProps> = ({
           utm_campaign,
           utm_id,
           utm_term,
-          utm_content
+          utm_content,
+          name
         }),
       });
   
